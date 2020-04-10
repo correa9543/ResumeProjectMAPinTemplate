@@ -1,0 +1,15 @@
+public class ObjectiveStatement {
+    private String statement;
+
+    public ObjectiveStatement(){
+
+    }
+
+    public ObjectiveStatement(String statement){
+        this.statement = statement;
+    }
+
+    public String getStatement(){
+        return statement;
+    }
+}
