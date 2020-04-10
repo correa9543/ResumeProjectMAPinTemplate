@@ -14,6 +14,7 @@ public class School {
 
     public School(String name, String location, String degree, String monthStarted, String yearStarted,
                   String monthEnded){
+
         this.name = name;
         this.location = location;
         this.degree = degree;
