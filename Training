@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+
+public class Training {
+    private ArrayList<String> trainingList;
+
+
+    public Training(){
+
+    }
+
+    public Training(String[] array){
+
+        //This variable will hold the training while the bullet point is removed.
+        String training;
+
+        trainingList = new ArrayList<>();
+
+        for(int i = 0; i < array.length; i++){
+            training = array[i].substring(2);
+            trainingList.add(training);
+        }
+
+    }
+
+    public ArrayList<String> getTrainingList(){
+        return trainingList;
+    }
+
+    public String getElementOfTrainingList(int i){
+        return trainingList.get(i);
+    }
+
+}
