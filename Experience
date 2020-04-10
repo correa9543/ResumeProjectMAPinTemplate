@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class Experience {
+
+    private ArrayList<Occupation> occupations;
+
+    public Experience(){
+        occupations = new ArrayList<>();
+    }
+
+    public void addOccupation(Occupation newOccupation){
+        occupations.add(newOccupation);
+    }
+
+    public ArrayList<Occupation> getOccupations(){
+        return occupations;
+    }
+
+    public Occupation getOccupationElement(int i){
+        return occupations.get(i);
+    }
+
+}
