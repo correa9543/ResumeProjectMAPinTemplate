@@ -2,15 +2,18 @@ import java.util.ArrayList;
 
 public class Education {
 
+    private String sectionName;
    private  ArrayList<School> schools;
 
     public Education(){
+        this.sectionName = "EDUCATION";
         schools = new ArrayList<>();
     }
 
     //I think I need to change these arguments because  only have an array list now.
     public Education(String schoolName, String schoolLocation, String degree, String monthYearStarted, String monthYearFinished){
 
+        this.sectionName = "EDUCATION";
         schools = new ArrayList<>();
 
     }
