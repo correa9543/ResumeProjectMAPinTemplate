@@ -1,2 +1,49 @@
 public class Resume {
+
+    private Contact contactInfo;
+    private ObjectiveStatement objective;
+    private Education educationSection;
+    private Experience experienceSection;
+    private Skills skillsSection;
+    private Training trainingSection;
+
+    public Resume(){
+
+    }
+
+    public Resume(Contact contactInfoObj, ObjectiveStatement objective, Education educationObj,
+                   Experience experienceObj, Skills skillObj, Training trainingObj){
+
+        this.contactInfo = contactInfoObj;
+        this.objective = objective;
+        this.educationSection = educationObj;
+        this.experienceSection = experienceObj;
+        this.skillsSection = skillObj;
+        this.trainingSection = trainingObj;
+
+    }
+
+    public Contact getContactInfo() {
+        return contactInfo;
+    }
+
+    public ObjectiveStatement getObjective() {
+        return objective;
+    }
+
+    public Education getEducationSection() {
+        return educationSection;
+    }
+
+    public Experience getExperienceSection(){
+        return experienceSection;
+    }
+
+    public Skills getSkillsSection() {
+        return skillsSection;
+    }
+
+    public Training getTrainingSection() {
+        return trainingSection;
+    }
 }
