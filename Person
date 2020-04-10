@@ -1,0 +1,56 @@
+public class Person {
+
+    //This variable will hold the first AND last name
+    private String name;
+
+    //This variable will hold the students cityAndState
+    private String cityAndState;
+
+    //This variable will hold the students number
+    private String phoneNumber;
+
+    //This variable will hold the students Email.
+    private String email;
+
+    //This variable be used to reference the resume of the student
+    private Resume resume;
+
+
+
+    public Person(String [] info){
+        this.name = info[0];
+        this.cityAndState = info[1];
+        this.phoneNumber = info[2];
+        this.email = info[3];
+    }
+
+    public Person(String name, String cityAndState, String phoneNumber, String email){
+        this.name = name;
+        this.cityAndState = cityAndState;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getCityAndState(){
+        return cityAndState;
+    }
+
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public Resume getResume(){
+        return resume;
+    }
+
+
+
+}
