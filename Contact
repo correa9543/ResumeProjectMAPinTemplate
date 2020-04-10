@@ -1,0 +1,42 @@
+    private String name;
+    private String sectionName;
+    private String cityAndState;
+    private String number;
+    private String email;
+
+    public Contact(){
+
+    }
+
+    public Contact(String name, String cityAndState, String number, String email){
+        this.sectionName = "CONTACT";
+        this.name = name;
+        this.cityAndState = cityAndState;
+        this.number = number;
+        this.email = email;
+    }
+
+    public Contact(String [] info){
+        this.sectionName = "CONTACT";
+        this.name = info[0];
+        this.cityAndState = info[1];
+        this.number = info[2];
+        this.email = info[3];
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCityAndState() {
+        return cityAndState;
+    }
+
+    public String getNumber(){
+        return number;
+    }
+
+    public String getEmail(){
+        return email;
+    }
