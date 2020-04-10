@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class Training {
+
+    private String sectionName;
     private ArrayList<String> trainingList;
 
 
@@ -12,6 +14,8 @@ public class Training {
 
         //This variable will hold the training while the bullet point is removed.
         String training;
+
+        this.sectionName = "TRAINING";
 
         trainingList = new ArrayList<>();
 
