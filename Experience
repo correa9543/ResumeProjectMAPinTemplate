@@ -2,9 +2,11 @@ import java.util.ArrayList;
 
 public class Experience {
 
+    private String sectionName;
     private ArrayList<Occupation> occupations;
 
     public Experience(){
+        this.sectionName = "Experience";
         occupations = new ArrayList<>();
     }
 
@@ -19,5 +21,12 @@ public class Experience {
     public Occupation getOccupationElement(int i){
         return occupations.get(i);
     }
+
+    public String getSectionName(){
+
+        return sectionName;
+    }
+
+
 
 }
