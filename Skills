@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Skills {
 
+    private String sectionName;
     private ArrayList<String> skillList;
 
     public Skills(){
@@ -11,6 +12,7 @@ public class Skills {
     public Skills(String[] array){
         //This variable will hold a skill while the bullet point is being removed
         String skill;
+        this.sectionName = "SKILLS";
         skillList = new ArrayList<>();
 
         for(int i = 0; i < array.length; i++){
