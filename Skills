@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+public class Skills {
+
+    private ArrayList<String> skillList;
+
+    public Skills(){
+
+    }
+
+    public Skills(String[] array){
+        //This variable will hold a skill while the bullet point is being removed
+        String skill;
+        skillList = new ArrayList<>();
+
+        for(int i = 0; i < array.length; i++){
+            skill = array[i].substring(2);
+            skillList.add(skill);
+        }
+    }
+
+    public ArrayList<String> getSkillList() {
+        return skillList;
+    }
+
+    public String getSkill(int i){
+        return skillList.get(i);
+    }
+}
