@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class Education {
+
+   private  ArrayList<School> schools;
+
+    public Education(){
+        schools = new ArrayList<>();
+    }
+
+    //I think I need to change these arguments because  only have an array list now.
+    public Education(String schoolName, String schoolLocation, String degree, String monthYearStarted, String monthYearFinished){
+
+        schools = new ArrayList<>();
+
+    }
+
+    public void addSchool(School newSchool){
+        schools.add(newSchool);
+    }
+
+    public ArrayList getSchools(){
+        return schools;
+    }
+
+    public School getSchoolElement(int i){
+        return schools.get(i);
+    }
+
+
+
+}
