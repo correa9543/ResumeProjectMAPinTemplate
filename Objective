@@ -1,4 +1,6 @@
 public class ObjectiveStatement {
+
+    private String sectionName;
     private String statement;
 
     public ObjectiveStatement(){
@@ -6,7 +8,8 @@ public class ObjectiveStatement {
     }
 
     public ObjectiveStatement(String statement){
-        this.statement = statement;
+        this.sectionName = "OBJECTIVE";
+         this.statement = statement;
     }
 
     public String getStatement(){
