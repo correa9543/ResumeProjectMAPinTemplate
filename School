@@ -1,0 +1,78 @@
+public class School {
+
+    private String name;
+    private String location;
+    private String degree;
+    private String monthStarted;
+    private String yearStarted;
+    private String monthEnded;
+    private String yearEnded;
+
+    public School(){
+
+    }
+
+    public School(String name, String location, String degree, String monthStarted, String yearStarted,
+                  String monthEnded){
+        this.name = name;
+        this.location = location;
+        this.degree = degree;
+        this.monthStarted = monthStarted;
+        this.yearStarted = yearStarted;
+        this.monthEnded = monthEnded;
+    }
+
+    public School(String name, String location, String degree, String monthStarted, String yearStarted,
+                                                                    String monthEnded, String yearEnded){
+        this.name = name;
+        this.location = location;
+        this.degree = degree;
+        this.monthStarted = monthStarted;
+        this.yearStarted = yearStarted;
+        this.monthEnded = monthEnded;
+        this.yearEnded = yearEnded;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getLocation(){
+        return location;
+    }
+
+    public String getDegree(){
+        return degree;
+    }
+
+    public String getMonthStarted(){
+        return monthStarted;
+    }
+
+    public String getYearStarted(){
+        return yearStarted;
+    }
+
+    public String getMonthEnded(){
+        return monthEnded;
+    }
+
+    public String getYearEnded(){
+        return yearEnded;
+    }
+
+    @Override
+    public String toString(){
+
+        if(monthStarted.equalsIgnoreCase("present")) {
+            return name + ", " + location + " - " + degree + "\n" + monthStarted + " "
+                    + yearStarted + " - " + monthEnded;
+        }
+        else{
+            return name + ", " + location + " - " + degree + "\n" + monthStarted + " "
+                    + yearStarted + " - " + monthEnded + " " + yearEnded;
+        }
+    }
+
+
+}
