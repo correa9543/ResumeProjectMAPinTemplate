@@ -91,17 +91,47 @@ public class ResumeCode {
 
                     System.out.println(line);
 
-                    //turn this block into a loop. While loop?
-                    line = input.nextLine();
-                    String monthAndYear = input.nextLine();
-                    eduObj.addSchool(createSchoolObj(line, monthAndYear));
-                    line = input.nextLine();
-                    monthAndYear = input.nextLine();
-                    eduObj.addSchool(createSchoolObj(line, monthAndYear));
-                    System.out.println(eduObj.getSchools().get(0));
-                    System.out.println(eduObj.getSchools().get(1));
+                    String aheadLine = " ";
+
+                    int aheadCounter = 0;
+
+                    while(!(aheadLine.equalsIgnoreCase("Education"))){
+                        aheadLine = ahead.nextLine();
+                    }
+
+                    aheadLine = ahead.nextLine();
+                    aheadLine = ahead.nextLine();
+
+                    while(!(aheadLine.equalsIgnoreCase("Experience"))){
+                        aheadLine = ahead.nextLine();
+                        aheadCounter++;
+                    }
+
+                    for(int i = 0; i < (aheadCounter/2); i++){
+                        line = input.nextLine();
+                        String monthAndYear = input.nextLine();
+                        eduObj.addSchool(createSchoolObj(line, monthAndYear));
+
+                    }
+
+                    for(int i = 0; i < eduObj.getSchools().size(); i++){
+                        System.out.println(eduObj.getSchools().get(i));
+                    }
 
                     System.out.println();
+
+
+                    //turn this block into a loop. While loop?
+//                    line = input.nextLine();
+//                    String monthAndYear = input.nextLine();
+//                    eduObj.addSchool(createSchoolObj(line, monthAndYear));
+//                    line = input.nextLine();
+//                    monthAndYear = input.nextLine();
+//                    eduObj.addSchool(createSchoolObj(line, monthAndYear));
+//                    System.out.println(eduObj.getSchools().get(0));
+//                    System.out.println(eduObj.getSchools().get(1));
+//
+//                    System.out.println();
                 }
 
                 else if(line.equalsIgnoreCase("Experience")){
