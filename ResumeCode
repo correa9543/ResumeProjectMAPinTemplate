@@ -31,6 +31,8 @@ public class ResumeCode {
 
             //Setting the "input" variable to read from the file named "resume.txt"
             input = new Scanner(new File("resume.txt"));
+            Scanner ahead = new Scanner(new File("resume.txt"));
+
 
             //This for loop will grab the first four lines of the file.
             for(int i = 0; i < 4; i++){
@@ -64,10 +66,11 @@ public class ResumeCode {
                     System.out.println();
                     System.out.println(line);
 
-                    //The "statement" variable will hold the objective statement.
-                   String statement = input.nextLine();
 
-                   //Creating a new "ObjectiveStatement" object.
+                    //The "statement" variable will hold the objective statement.
+                    String statement = input.nextLine();
+
+                    //Creating a new "ObjectiveStatement" object.
                     objectiveObj = new ObjectiveStatement(statement);
 
 
@@ -82,7 +85,7 @@ public class ResumeCode {
 
                 }
 
-               else if(line.equalsIgnoreCase("Education")){
+                else if(line.equalsIgnoreCase("Education")){
 
                     eduObj = new Education();
 
@@ -101,7 +104,7 @@ public class ResumeCode {
                     System.out.println();
                 }
 
-               else if(line.equalsIgnoreCase("Experience")){
+                else if(line.equalsIgnoreCase("Experience")){
 
                     //String[] duties = new String[];
                     String[] duties = new String[3];
@@ -129,11 +132,31 @@ public class ResumeCode {
                     System.out.println();
                 }
 
-               else if(line.equalsIgnoreCase("Skills")){
+                else if(line.equalsIgnoreCase("Skills")){
                     System.out.println(line);
-                    String [] skillList = new String[4];
 
-                    for(int i = 0; i < 4; i++){
+                    String aheadLine = " ";
+                    int aheadCounter = 0;
+
+                    while(!(aheadLine.equalsIgnoreCase("Skills"))){
+                        aheadLine = ahead.nextLine();
+                    }
+                   // System.out.println(aheadLine);
+
+                    aheadLine = ahead.nextLine();
+
+                    while(!(aheadLine.equalsIgnoreCase("Training"))){
+                        aheadLine = ahead.nextLine();
+                        aheadCounter++;
+
+                    }
+
+                    //System.out.println(aheadCounter);
+
+
+                    String [] skillList = new String[aheadCounter-2];
+
+                    for(int i = 0; i < aheadCounter-2; i++){
                         skillList[i] = input.nextLine();
                     }
 
@@ -145,20 +168,36 @@ public class ResumeCode {
                     System.out.println();
                 }
 
-              else  if(line.equalsIgnoreCase("Training")){
+                else if(line.equalsIgnoreCase("Training")){
                     System.out.println(line);
 
-                    String [] listOfTrainings = new String[4];
+                    String aheadLine = " ";
+                    int aheadCounter = 0;
 
-                   for(int i = 0; i < 4; i++){
-                       listOfTrainings[i] = input.nextLine();
-                   }
+//                    while(!(ahead.hasNextLine())){
+//                        aheadLine = ahead.nextLine();
+//                    }
+                    // System.out.println(aheadLine);
 
-                   trainingObj = new Training(listOfTrainings);
+                    //aheadLine = ahead.nextLine();
 
-                   for(int i = 0; i < listOfTrainings.length; i++){
-                       System.out.println(trainingObj.getElementOfTrainingList(i));
-                   }
+                    while(ahead.hasNextLine()){
+                        aheadLine = ahead.nextLine();
+                        aheadCounter++;
+
+                    }
+
+                    String [] listOfTrainings = new String[aheadCounter];
+
+                    for(int i = 0; i < aheadCounter; i++){
+                        listOfTrainings[i] = input.nextLine();
+                    }
+
+                    trainingObj = new Training(listOfTrainings);
+
+                    for(int i = 0; i < listOfTrainings.length; i++){
+                        System.out.println(trainingObj.getElementOfTrainingList(i));
+                    }
 
                 }
 
@@ -170,7 +209,7 @@ public class ResumeCode {
             //System.out.println(resume.getObjective().getStatement());
 
             //System.out.println(resume.getExperienceSection().getOccupationElement(0).displayDuties());
-           // resume.getExperienceSection().getOccupationElement(0).displayDuties();
+            // resume.getExperienceSection().getOccupationElement(0).displayDuties();
 
 
 
@@ -236,7 +275,7 @@ public class ResumeCode {
         String endingMonth;
         String endingYear;
 
-       // System.out.println(line);
+        // System.out.println(line);
         //System.out.println(monthsAndYears);
 
         comma = line.indexOf(",");
