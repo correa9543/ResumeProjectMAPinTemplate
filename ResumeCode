@@ -24,6 +24,7 @@ public class ResumeCode {
         Experience expObj = new Experience();
         Skills skillsObj = new Skills();
         Training trainingObj = new Training();
+       // Person personObj = new Person();
 
         //School school;
 
@@ -99,15 +100,15 @@ public class ResumeCode {
                         aheadLine = ahead.nextLine();
                     }
 
-                    aheadLine = ahead.nextLine();
-                    aheadLine = ahead.nextLine();
+//                    aheadLine = ahead.nextLine();
+//                    aheadLine = ahead.nextLine();
 
                     while(!(aheadLine.equalsIgnoreCase("Experience"))){
                         aheadLine = ahead.nextLine();
                         aheadCounter++;
                     }
 
-                    for(int i = 0; i < (aheadCounter/2); i++){
+                    for(int i = 0; i < ((aheadCounter-2)/2); i++){
                         line = input.nextLine();
                         String monthAndYear = input.nextLine();
                         eduObj.addSchool(createSchoolObj(line, monthAndYear));
@@ -121,45 +122,51 @@ public class ResumeCode {
                     System.out.println();
 
 
-                    //turn this block into a loop. While loop?
-//                    line = input.nextLine();
-//                    String monthAndYear = input.nextLine();
-//                    eduObj.addSchool(createSchoolObj(line, monthAndYear));
-//                    line = input.nextLine();
-//                    monthAndYear = input.nextLine();
-//                    eduObj.addSchool(createSchoolObj(line, monthAndYear));
-//                    System.out.println(eduObj.getSchools().get(0));
-//                    System.out.println(eduObj.getSchools().get(1));
-//
-//                    System.out.println();
                 }
 
-                else if(line.equalsIgnoreCase("Experience")){
+                else if(line.equalsIgnoreCase("Experience") || line.equalsIgnoreCase(" Work Experience")){
 
-                    //String[] duties = new String[];
-                    String[] duties = new String[3];
-                    expObj = new Experience();
+                    String aheadLine = line;
+                    int dutyCounter = 0;
+                    int occupationCounter = 0;
 
-                    System.out.println("Experience");
+                    while(!(aheadLine.equalsIgnoreCase("Skills"))){
+                        aheadLine = ahead.nextLine();
 
-                    line = input.nextLine();
-                    String monthAndYear = input.nextLine();
-
-
-                    for(int i = 0; i < 3; i++){
-                        duties[i] = input.nextLine();
+                        if(aheadLine.contains(",")){
+                            occupationCounter++;
+                            dutyCounter = 0;
+                        }
+                         if(aheadLine.contains("*")){
+                             dutyCounter++;
+                         }
                     }
 
-                    //Whatever object gets returned from the "createOccupationObject"
-                    // will get added to the list of occupations
-                    expObj.addOccupation(createOccupationObject(line, monthAndYear, duties));
-                    System.out.println(expObj.getOccupations().get(0));
-                    System.out.println(expObj.getOccupationElement(0).getDutyElement(0));
-                    System.out.println(expObj.getOccupationElement(0).getDutyElement(1));
-                    System.out.println(expObj.getOccupationElement(0).getDutyElement(2));
+                    String [] duties = new String [dutyCounter];
+                    expObj = new Experience();
 
+                    System.out.println(line);
+
+                    for(int i = 0; i < occupationCounter; i++){
+                        line = input.nextLine();
+                        String monthAndYear = input.nextLine();
+
+                        for(int j = 0; j < dutyCounter; j++){
+                            duties[j] = input.nextLine();
+                        }
+                        expObj.addOccupation(createOccupationObject(line,monthAndYear,duties));
+                    }
+
+                    for(int i = 0; i < occupationCounter; i++){
+                        System.out.println(expObj.getOccupations().get(i));
+
+                        for(int j = 0; j < dutyCounter; j++){
+                            System.out.println(expObj.getOccupationElement(i).getDutyElement(j));
+                        }
+                    }
 
                     System.out.println();
+
                 }
 
                 else if(line.equalsIgnoreCase("Skills")){
@@ -168,12 +175,8 @@ public class ResumeCode {
                     String aheadLine = " ";
                     int aheadCounter = 0;
 
-                    while(!(aheadLine.equalsIgnoreCase("Skills"))){
-                        aheadLine = ahead.nextLine();
-                    }
-                   // System.out.println(aheadLine);
-
                     aheadLine = ahead.nextLine();
+
 
                     while(!(aheadLine.equalsIgnoreCase("Training"))){
                         aheadLine = ahead.nextLine();
@@ -181,7 +184,6 @@ public class ResumeCode {
 
                     }
 
-                    //System.out.println(aheadCounter);
 
 
                     String [] skillList = new String[aheadCounter-2];
@@ -203,13 +205,6 @@ public class ResumeCode {
 
                     String aheadLine = " ";
                     int aheadCounter = 0;
-
-//                    while(!(ahead.hasNextLine())){
-//                        aheadLine = ahead.nextLine();
-//                    }
-                    // System.out.println(aheadLine);
-
-                    //aheadLine = ahead.nextLine();
 
                     while(ahead.hasNextLine()){
                         aheadLine = ahead.nextLine();
@@ -233,15 +228,10 @@ public class ResumeCode {
 
             }
 
-            Resume resume = new Resume(contactInfo, objectiveObj, eduObj, expObj, skillsObj, trainingObj); //Throw in the parts of the resume.
-
-            //System.out.println();
-            //System.out.println(resume.getObjective().getStatement());
-
-            //System.out.println(resume.getExperienceSection().getOccupationElement(0).displayDuties());
-            // resume.getExperienceSection().getOccupationElement(0).displayDuties();
-
-
+            //Creating a resume object with all the parts needed that were created previously.
+            Resume resume = new Resume(contactInfo, objectiveObj, eduObj, expObj, skillsObj, trainingObj);
+            Person personObj = new Person(resume);
+            //System.out.println(personObj.getResume().getObjective().getStatement());
 
         }catch(FileNotFoundException e){
             System.out.println("Could not find the resume text file! \nException: " + e);
