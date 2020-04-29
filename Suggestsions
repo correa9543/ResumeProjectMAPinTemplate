@@ -1,0 +1,111 @@
+import java.util.ArrayList;
+
+public class Suggestions {
+
+    private ArrayList<String> objSuggestions;
+    private ArrayList<String> eduSuggestions;
+    private ArrayList<String> expSuggestions;
+    private ArrayList<String> skillsSuggestions;
+    private ArrayList<String> trainingSuggestions;
+    private ArrayList<String> actionVerbs;
+
+    public Suggestions(){
+
+        objSuggestions = new ArrayList<>();
+        eduSuggestions = new ArrayList<>();
+        expSuggestions = new ArrayList<>();
+        skillsSuggestions = new ArrayList<>();
+        trainingSuggestions = new ArrayList<>();
+        actionVerbs = new ArrayList<>();
+
+        //Inserting suggestions into the ArrayList for the objective section.
+        //i = 0
+        objSuggestions.add("You have no objective statement. Make sure to write one before you turn in a resume");
+
+        //i = 1
+        objSuggestions.add("Make sure to include your level of education.");
+
+        //i = 2
+        objSuggestions.add("Remember to include the name of the position you are applying for.");
+
+        //i = 3
+        objSuggestions.add("Remember to add the name of the place you are applying for if you didn't do so already.");
+
+        //i = 4
+        objSuggestions.add("Add some of the skills you have in your objective statement.");
+
+        //i = 5
+        objSuggestions.add("Example Objective Statement: High school student seeking a cashier position at Target " +
+                "that will allow me to utilize my interpersonal, organizational, and leadership skills.");
+
+        //i = 6
+        objSuggestions.add("Note: If you write the name of the place you are applying to on your resume, make sure you" +
+                                                " edit your objective statement every time you are applying somewhere new.");
+
+
+        //Inserting suggestions into the ArrayList for the Education section.
+        //i = 0
+        eduSuggestions.add("Under this section I would add SVCTE as well. Make sure to write out the " +
+                "entire name of the school. If you only write SVCTE, employers might now know what it means.");
+
+        //i = 1
+        eduSuggestions.add("I recommend spelling out the name of SVCTE. Employers may not know what SVCTE means. ");
+
+        //Inserting suggestions into the ArrayList for the Experience section.
+        //i = 0
+        expSuggestions.add("Remember to start each duty with an action verb.\n" +
+                        "Example: Assured the cleanliness of the store.");
+
+        expSuggestions.add("Make sure to capitalize the entire name of the month.");
+
+
+
+
+    }
+
+
+    public String getObjSuggElement(int i){
+       return objSuggestions.get(i);
+    }
+
+    public String getEduSuggElement(int i){
+       return eduSuggestions.get(i);
+    }
+
+    public String getExpSuggElement(int i){
+        return expSuggestions.get(i);
+    }
+
+    public String getSkillsSuggElement(int i){
+        return skillsSuggestions.get(i);
+    }
+
+    public String getTrainingSuggElement(int i){
+        return trainingSuggestions.get(i);
+    }
+
+
+    public ArrayList<String> getObjSuggestions(){
+        return objSuggestions;
+    }
+
+    public ArrayList<String> getEduSuggestions(){
+        return eduSuggestions;
+    }
+
+    public ArrayList<String> getexpSuggestions(){
+        return expSuggestions;
+    }
+
+    public ArrayList<String> getSkillsSuggestions(){
+        return skillsSuggestions;
+    }
+
+    public ArrayList<String> getTrainingSuggestions(){
+        return trainingSuggestions;
+    }
+
+    public ArrayList<String> getActionVerbs(){
+        return actionVerbs;
+    }
+}
