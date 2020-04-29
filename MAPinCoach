@@ -1,0 +1,12 @@
+public class MAPinCoach {
+
+    private Suggestions suggestions;
+
+    public MAPinCoach(){
+        suggestions = new Suggestions();
+    }
+
+    public Suggestions getSuggestions() {
+        return suggestions;
+    }
+}
