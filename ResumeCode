@@ -79,13 +79,9 @@ public class ResumeCode {
 
                     System.out.println();
 
-
-                    //*****************************************************************
-                    // Review the objective statement;
-                    //*****************************************************************
-
                 }
 
+                //If program goes into this statement, the education section is included in the resume and it will read the contents of the sections
                 else if(line.equalsIgnoreCase("Education")){
 
                     eduObj = new Education();
@@ -96,25 +92,31 @@ public class ResumeCode {
 
                     int aheadCounter = 0;
 
-                    while(!(aheadLine.equalsIgnoreCase("Education"))){
+                    //This while loop will bring "aheadLine" Scanner object to the beginning of the education section so
+                    // that it can be used to count how many lines are in the education section.
+                    while(!(aheadLine.equalsIgnoreCase("Education"))) {
                         aheadLine = ahead.nextLine();
                     }
 
-//                    aheadLine = ahead.nextLine();
-//                    aheadLine = ahead.nextLine();
-
+                    //This while loop will use the "aheadLine" Scanner object to count how many lines are in the education section.
                     while(!(aheadLine.equalsIgnoreCase("Experience"))){
                         aheadLine = ahead.nextLine();
                         aheadCounter++;
                     }
 
-                    for(int i = 0; i < ((aheadCounter-2)/2); i++){
+                    //We use the "line" Scanner object in the for loop to read the lines in the education section.
+                    //The for loop runs "((aheadCounter - 3))/2" times. This is because thre are three lines in the education sections
+                    //that we don't want to we subtract three from the counter to remove them, then we divide by 2 to get the number
+                    //of schools there are.
+                    for(int i = 0; i < ((aheadCounter-3)/2); i++){
                         line = input.nextLine();
                         String monthAndYear = input.nextLine();
                         eduObj.addSchool(createSchoolObj(line, monthAndYear));
+                        input.nextLine();
 
                     }
 
+                    //Printing out the education section and its school objects.
                     for(int i = 0; i < eduObj.getSchools().size(); i++){
                         System.out.println(eduObj.getSchools().get(i));
                     }
@@ -124,6 +126,8 @@ public class ResumeCode {
 
                 }
 
+                //If the program goes in to this "else if" statement, then the Work experience section is present and it will
+                //read the contents in the section
                 else if(line.equalsIgnoreCase("Experience") || line.equalsIgnoreCase(" Work Experience")){
 
                     String aheadLine = line;
@@ -137,9 +141,10 @@ public class ResumeCode {
                             occupationCounter++;
                             dutyCounter = 0;
                         }
-                         if(aheadLine.contains("*")){
+
+                        if(aheadLine.contains("*")){
                              dutyCounter++;
-                         }
+                        }
                     }
 
                     String [] duties = new String [dutyCounter];
@@ -231,7 +236,11 @@ public class ResumeCode {
             //Creating a resume object with all the parts needed that were created previously.
             Resume resume = new Resume(contactInfo, objectiveObj, eduObj, expObj, skillsObj, trainingObj);
             Person personObj = new Person(resume);
-            //System.out.println(personObj.getResume().getObjective().getStatement());
+            ReviewSession reviewSession = new ReviewSession(new MAPinCoach(), personObj);
+
+            reviewSession.startReviewSession();
+
+            //create a new reviewSession and object and pass in the personObj and a newly created coach.
 
         }catch(FileNotFoundException e){
             System.out.println("Could not find the resume text file! \nException: " + e);
